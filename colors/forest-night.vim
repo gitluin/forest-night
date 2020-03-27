@@ -42,8 +42,9 @@ let s:palette = {
       \ 'orange':     ['#e39b7b',   '208',  'Red'],
       \ 'yellow':     ['#d9bb80',   '214',  'Yellow'],
       \ 'green':      ['#a7c080',   '142',  'Green'],
-      \ 'cyan':       ['#87c095',   '108',   'Cyan'],
+      \ 'cyan':       ['#87c095',   '108',  'Cyan'],
       \ 'blue':       ['#89beba',   '109',  'Blue'],
+      \ 'darkblue':   ['#52bee1',   '109',  'DarkBlue2'],
       \ 'purple':     ['#d3a0bc',   '175',  'Magenta'],
       \ 'grey':       ['#868d80',   '245',  'LightGrey'],
       \ 'none':       ['NONE',      'NONE', 'NONE']
@@ -206,57 +207,57 @@ call s:HL('QuickFixLine', s:palette.blue, s:palette.bg1)
 call s:HL('Debug', s:palette.yellow, s:palette.none)
 " }}}
 " Syntax: {{{
-call s:HL('Boolean', s:palette.purple, s:palette.none)
-call s:HL('Number', s:palette.purple, s:palette.none)
-call s:HL('Float', s:palette.purple, s:palette.none)
+call s:HL('Boolean', s:palette.red, s:palette.none)
+call s:HL('Number', s:palette.red, s:palette.none)
+call s:HL('Float', s:palette.red, s:palette.none)
 if s:configuration.enable_italic
-  call s:HL('PreProc', s:palette.purple, s:palette.none, 'italic')
-  call s:HL('PreCondit', s:palette.purple, s:palette.none, 'italic')
-  call s:HL('Include', s:palette.purple, s:palette.none, 'italic')
-  call s:HL('Define', s:palette.purple, s:palette.none, 'italic')
-  call s:HL('Conditional', s:palette.red, s:palette.none, 'italic')
-  call s:HL('Repeat', s:palette.red, s:palette.none, 'italic')
+  call s:HL('PreProc', s:palette.red, s:palette.none, 'italic')
+  call s:HL('PreCondit', s:palette.red, s:palette.none, 'italic')
+  call s:HL('Include', s:palette.red, s:palette.none, 'italic')
+  call s:HL('Define', s:palette.red, s:palette.none, 'italic')
+  call s:HL('Conditional', s:palette.none, s:palette.none, 'italic')
+  call s:HL('Repeat', s:palette.none, s:palette.none, 'italic')
   call s:HL('Keyword', s:palette.red, s:palette.none, 'italic')
   call s:HL('Typedef', s:palette.red, s:palette.none, 'italic')
   call s:HL('Exception', s:palette.red, s:palette.none, 'italic')
-  call s:HL('Statement', s:palette.red, s:palette.none, 'italic')
+  call s:HL('Statement', s:palette.darkblue, s:palette.none, 'italic')
 else
-  call s:HL('PreProc', s:palette.purple, s:palette.none)
-  call s:HL('PreCondit', s:palette.purple, s:palette.none)
-  call s:HL('Include', s:palette.purple, s:palette.none)
-  call s:HL('Define', s:palette.purple, s:palette.none)
-  call s:HL('Conditional', s:palette.red, s:palette.none)
-  call s:HL('Repeat', s:palette.red, s:palette.none)
+  call s:HL('PreProc', s:palette.red, s:palette.none)
+  call s:HL('PreCondit', s:palette.red, s:palette.none)
+  call s:HL('Include', s:palette.red, s:palette.none)
+  call s:HL('Define', s:palette.red, s:palette.none)
+  call s:HL('Conditional', s:palette.none, s:palette.none)
+  call s:HL('Repeat', s:palette.none, s:palette.none)
   call s:HL('Keyword', s:palette.red, s:palette.none)
   call s:HL('Typedef', s:palette.red, s:palette.none)
   call s:HL('Exception', s:palette.red, s:palette.none)
-  call s:HL('Statement', s:palette.red, s:palette.none)
+  call s:HL('Statement', s:palette.darkblue, s:palette.none)
 endif
 call s:HL('Error', s:palette.red, s:palette.none)
 call s:HL('StorageClass', s:palette.orange, s:palette.none)
 call s:HL('Tag', s:palette.orange, s:palette.none)
 call s:HL('Label', s:palette.orange, s:palette.none)
 call s:HL('Structure', s:palette.orange, s:palette.none)
-call s:HL('Operator', s:palette.orange, s:palette.none)
+call s:HL('Operator', s:palette.blue, s:palette.none)
 call s:HL('Title', s:palette.orange, s:palette.none, 'bold')
 call s:HL('Special', s:palette.yellow, s:palette.none)
 call s:HL('SpecialChar', s:palette.yellow, s:palette.none)
 call s:HL('Type', s:palette.yellow, s:palette.none)
-call s:HL('Function', s:palette.green, s:palette.none)
+call s:HL('Function', s:palette.orange, s:palette.none)
 call s:HL('String', s:palette.green, s:palette.none)
 call s:HL('Character', s:palette.green, s:palette.none)
-call s:HL('Constant', s:palette.cyan, s:palette.none)
-call s:HL('Macro', s:palette.cyan, s:palette.none)
+call s:HL('Constant', s:palette.red, s:palette.none)
+call s:HL('Macro', s:palette.orange, s:palette.none)
 call s:HL('Identifier', s:palette.blue, s:palette.none)
 call s:HL('SpecialKey', s:palette.blue, s:palette.none)
 if s:configuration.disable_italic_comment
-  call s:HL('Comment', s:palette.grey, s:palette.none)
-  call s:HL('SpecialComment', s:palette.grey, s:palette.none)
-  call s:HL('Todo', s:palette.purple, s:palette.none)
+  call s:HL('Comment', s:palette.blue, s:palette.none)
+  call s:HL('SpecialComment', s:palette.blue, s:palette.none)
+  call s:HL('Todo', s:palette.red, s:palette.darkblue)
 else
-  call s:HL('Comment', s:palette.grey, s:palette.none, 'italic')
-  call s:HL('SpecialComment', s:palette.grey, s:palette.none, 'italic')
-  call s:HL('Todo', s:palette.purple, s:palette.none, 'italic')
+  call s:HL('Comment', s:palette.blue, s:palette.none, 'italic')
+  call s:HL('SpecialComment', s:palette.blue, s:palette.none, 'italic')
+  call s:HL('Todo', s:palette.red, s:palette.darkblue, 'bold')
 endif
 call s:HL('Delimiter', s:palette.fg, s:palette.none)
 call s:HL('Ignore', s:palette.grey, s:palette.none)
@@ -1174,19 +1175,19 @@ highlight! link clojureDeref Yellow
 " Shell: {{{
 " builtin: http://www.drchip.org/astronaut/vim/index.html#SYNTAX_SH{{{
 highlight! link shRange Fg
-highlight! link shTestOpr Orange
-highlight! link shOption Cyan
+highlight! link shTestOpr Blue
+highlight! link shOption None
 highlight! link bashStatement Orange
 highlight! link shOperator Orange
 highlight! link shQuote Green
 highlight! link shSet Orange
 highlight! link shSetList Blue
 highlight! link shSnglCase Orange
-highlight! link shVariable Blue
+highlight! link shVariable Orange
 highlight! link shVarAssign Orange
 highlight! link shCmdSubRegion Green
 highlight! link shCommandSub Orange
-highlight! link shFunctionOne Green
+highlight! link shFunctionOne None
 highlight! link shFunctionKey RedItalic
 " }}}
 " }}}
